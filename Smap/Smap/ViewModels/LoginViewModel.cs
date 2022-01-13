@@ -4,14 +4,16 @@ using Smap.Views;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Windows.Input;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 
 namespace Smap.ViewModels
 {
-    public class LoginViewModel : BindableObject
+    public class LoginViewModel : INotifyPropertyChanged
     {
+        public event PropertyChangedEventHandler PropertyChanged;
         public ObservableCollection<Ip> IpList { get; set; } = new ObservableCollection<Ip>()
         {
             new Ip(){ Id = 1},
@@ -22,5 +24,6 @@ namespace Smap.ViewModels
         };
 
         public Ip SelectedIp { get; set; }
+
     }
 }
