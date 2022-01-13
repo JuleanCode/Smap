@@ -1,10 +1,13 @@
-﻿using System;
+﻿using SQLite;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace Smap.Models
 {
-    internal class Service
+    public class Service
     {
+        [PrimaryKey, AutoIncrement]
+        public int Id { get; set; }
     }
 }

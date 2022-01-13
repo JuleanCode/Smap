@@ -7,8 +7,98 @@
     -->
     <Application.Resources>
         <ResourceDictionary>
-            <Color x:Key="Primary">#2196F3</Color>
-            
-        </ResourceDictionary>        
+            <Color x:Key="Primary">#080808</Color>
+
+
+            <Color x:Key="primaryTitleColor">#E59400</Color>
+            <Color x:Key="primaryButtonColor">#E59400</Color>
+            <Color x:Key="secondaryButtonColor">#D0342C</Color>
+            <Color x:Key="primaryTekstColor">#ffffff</Color>
+            <Color x:Key="secondaryTekstColor">#080808</Color>
+            <Color x:Key="primaryBackgroundColor">#080808</Color>
+
+            <Style TargetType="NavigationPage">
+                <Setter Property="BarBackgroundColor" Value="{DynamicResource Key=primaryBackgroundColor}"/>
+                <Setter Property="BarTextColor" Value="{DynamicResource Key=primaryTitleColor}"/>
+            </Style>
+
+            <Style x:Key="appBackground"  TargetType="ContentPage">
+                <Setter Property="BackgroundColor" Value="{DynamicResource Key=primaryBackgroundColor}"/>
+            </Style>
+
+            <Style  x:Key="pageMain"  TargetType="StackLayout">
+                <Setter Property="Padding" Value="20"/>
+            </Style>
+
+            <Style  x:Key="titleMain"  TargetType="Label">
+                <Setter Property="HorizontalOptions" Value="Center" />
+                <Setter Property="Padding" Value="20"/>
+                <Setter Property="FontSize" Value="Title"/>
+                <Setter Property="FontAttributes" Value="Bold"/>
+                <Setter Property="TextColor" Value="{DynamicResource Key=primaryTitleColor}" />
+            </Style>
+
+            <Style  x:Key="titleSecondary"  TargetType="Label">
+                <Setter Property="HorizontalOptions" Value="Center" />
+                <Setter Property="FontSize" Value="Medium"/>
+                <Setter Property="FontAttributes" Value="Bold"/>
+                <Setter Property="TextColor" Value="{DynamicResource Key=primaryTitleColor}" />
+            </Style>
+
+            <Style  x:Key="textBoxMain"  TargetType="Label">
+                <Setter Property="HorizontalOptions" Value="Center" />
+                <Setter Property="Padding" Value="0,0,0,20"/>
+                <Setter Property="FontSize" Value="Medium"/>
+                <Setter Property="FontAttributes" Value="Bold"/>
+                <Setter Property="TextColor" Value="{DynamicResource Key=primaryTekstColor}" />
+            </Style>
+
+            <Style  x:Key="btnMain"  TargetType="Button">
+                <Setter Property="HorizontalOptions" Value="Center" />
+                <Setter Property="WidthRequest" Value="150" />
+                <Setter Property="Margin" Value="10"/>
+                <Setter Property="Font" Value="Bold,20"/>
+                <Setter Property="BackgroundColor" Value="{DynamicResource Key=primaryButtonColor}"/>
+                <Setter Property="TextColor" Value="{DynamicResource Key=primaryTekstColor}" />
+            </Style>
+
+            <Style  x:Key="btnAlert"  TargetType="Button">
+                <Setter Property="HorizontalOptions" Value="Center" />
+                <Setter Property="WidthRequest" Value="150" />
+                <Setter Property="Margin" Value="10"/>
+                <Setter Property="Font" Value="Bold,20"/>
+                <Setter Property="BackgroundColor" Value="{DynamicResource Key=secondaryButtonColor}"/>
+                <Setter Property="TextColor" Value="{DynamicResource Key=primaryTekstColor}" />
+            </Style>
+
+            <Style  x:Key="btnLike"  TargetType="ImageButton">
+                <Setter Property="HorizontalOptions" Value="Center" />
+                <Setter Property="WidthRequest" Value="140" />
+                <Setter Property="BackgroundColor" Value="{DynamicResource Key=primaryBackgroundColor}"/>
+            </Style>
+
+            <Style  x:Key="inputMain"  TargetType="Entry">
+                <Setter Property="HorizontalOptions" Value="Center" />
+                <Setter Property="WidthRequest" Value="150" />
+                <Setter Property="TextColor" Value="{DynamicResource Key=primaryTekstColor}" />
+                <Setter Property="PlaceholderColor" Value="{DynamicResource Key=primaryTekstColor}" />
+            </Style>
+
+            <Style  x:Key="inputPicker"  TargetType="Picker">
+                <Setter Property="HorizontalOptions" Value="Center" />
+                <Setter Property="WidthRequest" Value="150" />
+                <Setter Property="TextColor" Value="{DynamicResource Key=primaryTekstColor}" />
+                <Setter Property="TitleColor" Value="{DynamicResource Key=primaryTekstColor}" />
+            </Style>
+
+            <Style x:Key="imageMain" TargetType="Image">
+                <Setter Property="HorizontalOptions" Value="Center" />
+            </Style>
+
+            <Style x:Key="imageSecondary" TargetType="Image">
+                <Setter Property="HorizontalOptions" Value="Center" />
+                <Setter Property="WidthRequest" Value="200" />
+            </Style>
+        </ResourceDictionary>
     </Application.Resources>
 </Application>

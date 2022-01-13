@@ -1,10 +1,16 @@
-﻿using System;
+﻿using Smap.Models;
+using Smap.Services;
+using Smap.Views;
+using System;
 using System.Collections.Generic;
-using System.Text;
+using System.Windows.Input;
+using Xamarin.Essentials;
+using Xamarin.Forms;
 
 namespace Smap.ViewModels
 {
-    internal class ScannerViewModel
+    public class ScannerViewModel : BindableObject
     {
+
     }
 }

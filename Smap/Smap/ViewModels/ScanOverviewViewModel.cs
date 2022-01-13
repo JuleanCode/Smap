@@ -9,8 +9,7 @@ using Xamarin.Forms;
 
 namespace Smap.ViewModels
 {
-    public class ServicesFoundViewModel : BindableObject
+    public class ScanOverviewViewModel : BindableObject
     {
-
     }
 }
