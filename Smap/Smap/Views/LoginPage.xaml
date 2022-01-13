@@ -16,5 +16,29 @@
 
         <Button  Text="Login" Style="{StaticResource btnMain}"/>
         <Button  Text="Register" Style="{StaticResource btnMain}"/>
+
+        <CollectionView ItemsSource="{Binding IpList}" 
+                            SelectedItem="{Binding SelectedIp}"
+                            Style="{StaticResource MainCollectionViewStyle}"
+                            x:Name="CollectionView">
+            <CollectionView.ItemsLayout>
+                <GridItemsLayout Orientation="Vertical" Span="2"/>
+            </CollectionView.ItemsLayout>
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <StackLayout>
+                        <Frame>
+                            <Grid Style="{StaticResource CollectionViewGridStyle}">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+                                <Label Text="{Binding Id}" Grid.Row="0" Style="{StaticResource CollectionViewGridStyle}"/>
+                            </Grid>
+                        </Frame>
+                    </StackLayout>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
     </StackLayout>
 </ContentPage>
