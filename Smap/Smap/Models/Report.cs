@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Smap.ViewModels
+namespace Smap.Models
 {
-    internal class LoginViewModel
+    internal class Report
     {
     }
 }

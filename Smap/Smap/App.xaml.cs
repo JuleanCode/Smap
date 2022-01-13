@@ -1,8 +1,4 @@
-﻿using Smap.Services;
-using Smap.Views;
-using System;
-using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
+﻿using Xamarin.Forms;
 
 namespace Smap
 {
@@ -13,7 +9,6 @@ namespace Smap
         {
             InitializeComponent();
 
-            DependencyService.Register<MockDataStore>();
             MainPage = new AppShell();
         }
 

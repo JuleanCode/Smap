@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Smap.ViewModels
 {
-    internal class LoginViewModel
+    internal class ServicesIPViewModel
     {
     }
 }

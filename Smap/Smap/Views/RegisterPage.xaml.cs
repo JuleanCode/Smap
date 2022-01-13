@@ -10,9 +10,9 @@ using Xamarin.Forms.Xaml;
 namespace Smap.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class LoginPage : ContentPage
+    public partial class RegisterPage : ContentPage
     {
-        public LoginPage()
+        public RegisterPage()
         {
             InitializeComponent();
         }
