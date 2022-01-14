@@ -33,6 +33,7 @@ namespace Smap.Services
         public static void FreshInstall()
         {
             Init();
+            DeleteAllData("Delete All Data");
 
             List<User> users = new List<User>()
             {

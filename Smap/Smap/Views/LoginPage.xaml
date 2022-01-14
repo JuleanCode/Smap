@@ -11,11 +11,11 @@
 
     <StackLayout Style="{StaticResource pageMain}">
 
-        <Entry Text="Email" Placeholder="Email" Style="{StaticResource inputMain}"/>
-        <Entry Text="Password" Placeholder="Password" Style="{StaticResource inputMain}"/>
+        <Entry Text="{Binding Email}" Placeholder="Email" Style="{StaticResource inputMain}"/>
+        <Entry Text="{Binding Password}" Placeholder="Password" Style="{StaticResource inputMain}"/>
 
-        <Button  Text="Login" Style="{StaticResource btnMain}"/>
-        <Button  Text="Register" Style="{StaticResource btnMain}"/>
+        <Button Command="{Binding Login}" Text="Login" Style="{StaticResource btnMain}"/>
+        <Button Command="{Binding Register}" Text="Register" Style="{StaticResource btnMain}"/>
 
         <CollectionView ItemsSource="{Binding IpList}" 
                             SelectedItem="{Binding SelectedIp}"

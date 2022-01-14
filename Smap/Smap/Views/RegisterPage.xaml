@@ -8,12 +8,13 @@
     <ContentPage.BindingContext>
         <viewmodels:RegisterViewModel/>
     </ContentPage.BindingContext>
-    
-    <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
-    </ContentPage.Content>
+
+    <StackLayout Style="{StaticResource pageMain}">
+        <Entry Text="{Binding Email}" Placeholder="Email" Style="{StaticResource inputMain}"/>
+        <Entry Text="{Binding Password}" Placeholder="Password" Style="{StaticResource inputMain}"/>
+        <Entry Text="{Binding PasswordCheck}" Placeholder="Password Check" Style="{StaticResource inputMain}"/>
+
+        <Button Command="{Binding Register}" Text="Register" Style="{StaticResource btnMain}"/>
+        <Button Command="{Binding Back}" Text="Back" Style="{StaticResource btnMain}"/>
+    </StackLayout>
 </ContentPage>

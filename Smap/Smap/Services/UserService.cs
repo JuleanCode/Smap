@@ -29,5 +29,71 @@ namespace Smap.Services
             db.CreateTable<Service>();
             db.CreateTable<User>();
         }
+
+        public static void CreateUser(User user)
+        {
+            Init();
+
+            db.Insert(user);
+
+            user = GetUserByEmail(user.Email);
+            Application.Current.Properties["CurentUser_id"] = user.Id.ToString();
+        }
+
+        public static User GetUser(int Id)
+        {
+            Init();
+
+            User user = db.Get<User>(Id);
+            return user;
+        }
+
+        public static User GetUserByEmail(string Email)
+        {
+            Init();
+
+            User user = db.Table<User>().First(x => x.Email == Email);
+            return user;
+        }
+
+        public static void DeleteUser(int Id)
+        {
+            Init();
+
+            db.Delete<User>(Id);
+        }
+
+        public static List<User> GetAllUser()
+        {
+            Init();
+
+            List<User> users = db.Query<User>($"SELECT * FROM user WHERE Id != {Application.Current.Properties["CurentUser_id"]}");
+            return users;
+        }
+
+        public static bool CheckUser(string Email, string Password)
+        {
+            Init();
+
+            try
+            {
+                var user = db.Table<User>().First(x => x.Email == Email && x.Password == Password);
+
+                Application.Current.Properties["CurentUser_id"] = user.Id.ToString();
+
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        public static void DeleteAllUsers()
+        {
+            Init();
+
+            db.DeleteAll<User>();
+        }
     }
 }
