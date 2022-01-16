@@ -3,16 +3,17 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:viewmodels="clr-namespace:Smap.ViewModels"
              x:DataType="viewmodels:AgreementViewModel"
-             x:Class="Smap.Views.AgreementPage">
+             x:Class="Smap.Views.AgreementPage"
+             Style="{StaticResource appBackground}">
+    
     <ContentPage.BindingContext>
         <viewmodels:AgreementViewModel/>
     </ContentPage.BindingContext>
-    
-    <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
-    </ContentPage.Content>
+
+    <StackLayout Style="{StaticResource pageMain}">
+        <Label Style="{StaticResource titleMain}">Disclaimer:</Label>
+        <Label Style="{StaticResource titleSecondary}">Only use this IP scanner when you have the required permissions!</Label>
+
+        <Button Command="{Binding Accept}" Text="Accept" Style="{StaticResource btnMain}"/>
+    </StackLayout>
 </ContentPage>

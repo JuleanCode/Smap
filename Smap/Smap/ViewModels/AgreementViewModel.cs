@@ -13,5 +13,17 @@ namespace Smap.ViewModels
     public class AgreementViewModel : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
+
+        public AgreementViewModel()
+        {
+            Accept = new Command(OnAccept);
+        }
+
+        public ICommand Accept { get; }
+
+        void OnAccept()
+        {
+            Application.Current.MainPage.Navigation.PushAsync(new ScannerPage());
+        }
     }
 }

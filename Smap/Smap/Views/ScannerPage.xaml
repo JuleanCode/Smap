@@ -2,18 +2,21 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:viewmodels="clr-namespace:Smap.ViewModels"
-             x:DataType="viewmodels:ScannerViewModel"
              x:Class="Smap.Views.ScannerPage"
              Style="{StaticResource appBackground}">
+    
     <ContentPage.BindingContext>
         <viewmodels:ScannerViewModel/>
     </ContentPage.BindingContext>
-    
-    <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
-    </ContentPage.Content>
+
+    <StackLayout Style="{StaticResource pageMain}">
+        <Label Style="{StaticResource titleMain}">Ip address:</Label>
+        <Entry Text="{Binding IpAddress}" Placeholder="Ip Address" Style="{StaticResource inputMain}"/>
+
+        <Label Style="{StaticResource titleSecondary}">Example:</Label>
+        <Label Style="{StaticResource titleSecondary}">192.168.178.1/24</Label>
+        <Label Style="{StaticResource titleSecondary}">192.168.178.154</Label>
+
+        <Button Command="{Binding Scan}" Text="Scan" Style="{StaticResource btnMain}"/>
+    </StackLayout>
 </ContentPage>

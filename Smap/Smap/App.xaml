@@ -36,14 +36,14 @@
                 <Setter Property="Padding" Value="20"/>
                 <Setter Property="FontSize" Value="Title"/>
                 <Setter Property="FontAttributes" Value="Bold"/>
-                <Setter Property="TextColor" Value="{DynamicResource Key=primaryTitleColor}" />
+                <Setter Property="TextColor" Value="{DynamicResource Key=primaryTekstColor}" />
             </Style>
 
             <Style  x:Key="titleSecondary"  TargetType="Label">
                 <Setter Property="HorizontalOptions" Value="Center" />
                 <Setter Property="FontSize" Value="Medium"/>
                 <Setter Property="FontAttributes" Value="Bold"/>
-                <Setter Property="TextColor" Value="{DynamicResource Key=primaryTitleColor}" />
+                <Setter Property="TextColor" Value="{DynamicResource Key=primaryTekstColor}" />
             </Style>
 
             <Style  x:Key="textBoxMain"  TargetType="Label">
