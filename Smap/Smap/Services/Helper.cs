@@ -13,12 +13,12 @@ namespace Smap.Services
     public class Helper
     {
         static SQLiteConnection db;
-        static void Init()
+        public static void Init()
         {
             if (db != null)
                 return;
 
-            var dataBasePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "Smap.db");
+            var dataBasePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "SmapDB.db");
 
             db = new SQLiteConnection(dataBasePath);
 

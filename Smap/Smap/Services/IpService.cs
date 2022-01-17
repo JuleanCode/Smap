@@ -15,19 +15,7 @@ namespace Smap.Services
         static SQLiteConnection db;
         static void Init()
         {
-            if (db != null)
-                return;
-
-            var dataBasePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "Smap.db");
-
-            db = new SQLiteConnection(dataBasePath);
-
-            db.CreateTable<Ip>();
-            db.CreateTable<Port>();
-            db.CreateTable<Report>();
-            db.CreateTable<Scan>();
-            db.CreateTable<Service>();
-            db.CreateTable<User>();
+            Helper.Init();
         }
     }
 }

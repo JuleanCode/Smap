@@ -9,5 +9,9 @@ namespace Smap.Models
     {
         [PrimaryKey, AutoIncrement]
         public int Id { get; set; }
+        public DateTime Date { get; set; }
+
+        //Relations
+        public int Ip_Id { get; set; }
     }
 }
