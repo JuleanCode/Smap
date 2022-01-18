@@ -5,15 +5,18 @@
              x:DataType="viewmodels:MainViewModel"
              x:Class="Smap.Views.MainPage"
              Style="{StaticResource appBackground}">
+    
     <ContentPage.BindingContext>
         <viewmodels:MainViewModel/>
     </ContentPage.BindingContext>
     
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            <Label Text="{Binding LoggedInUser.Id, StringFormat='Welkom, user {0}!'}"
+                   Style="{StaticResource titleMain}"/>
+            <Button Text="Nieuwe scan" Style="{StaticResource btnMain}" Command="{Binding NewScan}"/>
+            <Button Text="Uitgevoerde scans" Style="{StaticResource btnMain}" Command="{Binding PreviousScans}"/>
+            <Button Text="Logout" Style="{StaticResource btnAlert}" Command="{Binding Logout}"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

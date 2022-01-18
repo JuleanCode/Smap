@@ -13,6 +13,7 @@ namespace Smap.Services
     public class UserService
     {
         static SQLiteConnection db;
+        public static User LoggedInUser { get; set; }
         static void Init()
         {
             if (db != null)
@@ -79,7 +80,7 @@ namespace Smap.Services
             {
                 var user = db.Table<User>().First(x => x.Email == Email && x.Password == Password);
 
-                Application.Current.Properties["CurentUser_id"] = user.Id.ToString();
+                LoggedInUser = user;
 
                 return true;
             }

@@ -61,14 +61,15 @@ namespace Smap.ViewModels
 
         void OnLogin()
         {
-            Helper.FreshInstall();
+            //Anders blijft hij nieuwe accounts aanmaken
+            //Helper.FreshInstall();
 
             if (user.Email != "" && user.Password != "")
             {
                 if (UserService.CheckUser(user.Email, user.Password))
                 {
-                    Application.Current.MainPage.Navigation.PushAsync(new AgreementPage());
-                                    }
+                    Application.Current.MainPage.Navigation.PushAsync(new MainPage());
+                }
                 else
                 {
                     Application.Current.MainPage.DisplayAlert("Alert", "Login credentials are incorrect ", "Ok");

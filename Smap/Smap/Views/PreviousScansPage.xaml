@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Smap.Views.PreviousScansPage"
+             xmlns:viewmodels="clr-namespace:Smap.ViewModels"
+             Style="{StaticResource appBackground}">
+
+    <ContentPage.BindingContext>
+        <viewmodels:PreviousScansViewModel/>
+    </ContentPage.BindingContext>
+    
+    <ContentPage.Content>
+        <StackLayout Style="{StaticResource pageMain}">
+            <Label Text="Eerder uitgevoerde scans:" Style="{StaticResource titleMain}"/>
+            <CollectionView ItemsSource="{Binding PreviousScans}" 
+                            SelectedItem="{Binding SelectedScan}"
+                            Style="{StaticResource MainCollectionViewStyle}"
+                            x:Name="CollectionView">
+                <CollectionView.ItemsLayout>
+                    <GridItemsLayout Orientation="Vertical" Span="1"/>
+                </CollectionView.ItemsLayout>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout>
+                            <Frame Style="{StaticResource CollectionViewFrameStyle}">
+                                <StackLayout>
+                                    <Label Text="{Binding Id, StringFormat='Scan id: {0}'}"
+                                           Style="{StaticResource textBoxMain}" 
+                                           HorizontalOptions="Start"/>
+                                    <Label Text="{Binding Date, StringFormat='Scan datum: {0}'}"
+                                           Style="{StaticResource textBoxMain}" 
+                                           HorizontalOptions="Start"/>
+                                </StackLayout>
+                            </Frame>
+                        </StackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
