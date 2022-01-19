@@ -16,6 +16,7 @@
                    Style="{StaticResource titleMain}"/>
             <Button Text="Nieuwe scan" Style="{StaticResource btnMain}" Command="{Binding NewScan}"/>
             <Button Text="Uitgevoerde scans" Style="{StaticResource btnMain}" Command="{Binding PreviousScans}"/>
+            <Button Text="Netwerkinformatie" Style="{StaticResource btnMain}" Command="{Binding NetworkInfo}"/>
             <Button Text="Logout" Style="{StaticResource btnAlert}" Command="{Binding Logout}"/>
         </StackLayout>
     </ContentPage.Content>

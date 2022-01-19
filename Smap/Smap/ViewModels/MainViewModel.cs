@@ -34,11 +34,16 @@ namespace Smap.ViewModels
                 UserService.LoggedInUser = null;
                 Application.Current.MainPage.Navigation.PopToRootAsync();
             });
+
+            NetworkInfo = new Command(() =>
+            {
+                Application.Current.MainPage.Navigation.PushAsync(new NetworkInformationPage());
+            });
         }
 
         public Command NewScan { get; }
         public Command PreviousScans { get; }
-
         public Command Logout { get; set; }
+        public Command NetworkInfo { get; set; }
     }
 }

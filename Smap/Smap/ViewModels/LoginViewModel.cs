@@ -62,7 +62,7 @@ namespace Smap.ViewModels
         void OnLogin()
         {
             //Anders blijft hij nieuwe accounts aanmaken
-            //Helper.FreshInstall();
+            Helper.FreshInstall();
 
             if (user.Email != "" && user.Password != "")
             {
