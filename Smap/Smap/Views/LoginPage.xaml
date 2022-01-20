@@ -16,23 +16,5 @@
 
         <Button Command="{Binding Login}" Text="Login" Style="{StaticResource btnMain}"/>
         <Button Command="{Binding Register}" Text="Register" Style="{StaticResource btnMain}"/>
-
-        <CollectionView ItemsSource="{Binding IpList}" 
-                            SelectedItem="{Binding SelectedIp}"
-                            Style="{StaticResource MainCollectionViewStyle}"
-                            x:Name="CollectionView">
-            <CollectionView.ItemsLayout>
-                <GridItemsLayout Orientation="Vertical" Span="1"/>
-            </CollectionView.ItemsLayout>
-            <CollectionView.ItemTemplate>
-                <DataTemplate>
-                    <StackLayout>
-                        <Frame Style="{StaticResource CollectionViewFrameStyle}">
-                            <Label Text="{Binding Id, StringFormat='Ip adres: {0}'}" Style="{StaticResource textBoxMain}" HorizontalOptions="Start"/>
-                        </Frame>
-                    </StackLayout>
-                </DataTemplate>
-            </CollectionView.ItemTemplate>
-        </CollectionView>
     </StackLayout>
 </ContentPage>

@@ -61,8 +61,7 @@ namespace Smap.ViewModels
 
         void OnLogin()
         {
-            //Anders blijft hij nieuwe accounts aanmaken
-            //Helper.FreshInstall();
+            Helper.FreshInstall();
 
             if (user.Email != "" && user.Password != "")
             {
@@ -85,16 +84,5 @@ namespace Smap.ViewModels
         {
             Application.Current.MainPage.Navigation.PushAsync(new RegisterPage());
         }
-
-        public ObservableCollection<Ip> IpList { get; set; } = new ObservableCollection<Ip>()
-        {
-            new Ip(){ Id = 1},
-            new Ip(){ Id = 2},
-            new Ip(){ Id = 3},
-            new Ip(){ Id = 4},
-            new Ip(){ Id = 5}
-        };
-
-        public Ip SelectedIp { get; set; }
     }
 }
