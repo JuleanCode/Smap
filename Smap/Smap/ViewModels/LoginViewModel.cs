@@ -5,6 +5,9 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.IO;
+using System.Net;
+using System.Net.Http;
 using System.Windows.Input;
 using Xamarin.Essentials;
 using Xamarin.Forms;
@@ -28,6 +31,8 @@ namespace Smap.ViewModels
         {
             Login = new Command(OnLogin);
             Register = new Command(OnRegister);
+
+            VDB();
         }
 
         public ICommand Login { get; }
@@ -84,6 +89,19 @@ namespace Smap.ViewModels
         void OnRegister()
         {
             Application.Current.MainPage.Navigation.PushAsync(new RegisterPage());
+        }
+
+
+        void VDB()
+        {
+            HttpClient httpClient = new HttpClient();
+            HttpRequestMessage request = new HttpRequestMessage();
+            request.RequestUri = new Uri("https://vuldb.com/?api");
+            request.Method = HttpMethod.Get;
+            request.Headers.Add("apikey", "ee9a2baf05302ba59b50c290a88097fd");
+            HttpResponseMessage response = httpClient.SendAsync(request).Result;
+            var responseString = response.Content.ReadAsStringAsync();
+            var statusCode = response.StatusCode;
         }
     }
 }
