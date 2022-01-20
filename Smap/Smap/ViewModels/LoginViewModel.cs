@@ -92,7 +92,7 @@ namespace Smap.ViewModels
         }
 
 
-        void VDB()
+        async void VDB()
         {
             HttpClient httpClient = new HttpClient();
             HttpRequestMessage request = new HttpRequestMessage();
@@ -100,7 +100,7 @@ namespace Smap.ViewModels
             request.Method = HttpMethod.Get;
             request.Headers.Add("apikey", "ee9a2baf05302ba59b50c290a88097fd");
             HttpResponseMessage response = httpClient.SendAsync(request).Result;
-            var responseString = response.Content.ReadAsStringAsync();
+            var responseString = await response.Content.ReadAsStringAsync();
             var statusCode = response.StatusCode;
         }
     }
