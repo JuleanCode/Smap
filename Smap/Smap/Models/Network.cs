@@ -5,11 +5,10 @@ using System.Text;
 
 namespace Smap.Models
 {
-    public class Service
+    public class Network
     {
         [PrimaryKey, AutoIncrement]
         public int Id { get; set; }
-        public string Name { get; set; }
-        public string Version { get; set; }
+        public string Address { get; set; }
     }
 }

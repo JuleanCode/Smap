@@ -9,11 +9,11 @@ namespace Smap.Models
     {
         [PrimaryKey, AutoIncrement]
         public int Id { get; set; }
-        public string Vulnerbility { get; set; }
         public DateTime Date { get; set; }
 
         //Relations
         public int Ip_Id { get; set; }
+        public int Network_Id { get; set; }
         public int User_Id { get; set; }
     }
 }

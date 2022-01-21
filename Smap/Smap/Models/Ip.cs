@@ -11,5 +11,8 @@ namespace Smap.Models
         public int Id { get; set; }
         public string Address { get; set; }
         public string Gateway { get; set; }
+
+        //Relations
+        public int Network_Id { get; set; }
     }
 }

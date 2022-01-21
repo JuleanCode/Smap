@@ -24,10 +24,10 @@ namespace Smap.Services
             db = new SQLiteConnection(dataBasePath);
 
             db.CreateTable<Ip>();
-            db.CreateTable<Port>();
+            db.CreateTable<OpenPort>();
             db.CreateTable<Report>();
-            db.CreateTable<Scan>();
-            db.CreateTable<Service>();
+            db.CreateTable<Network>();
+            db.CreateTable<Vulnerbility>();
             db.CreateTable<User>();
         }
 

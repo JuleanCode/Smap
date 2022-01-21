@@ -5,14 +5,12 @@ using System.Text;
 
 namespace Smap.Models
 {
-    internal class Port
+    public class Vulnerbility
     {
         [PrimaryKey, AutoIncrement]
         public int Id { get; set; }
-        public int Number { get; set; }
+        public DateTime Date { get; set; }
+        public string Cve { get; set; }
 
-        //Relations
-        public int Ip_Id { get; set; }
-        public int Service_Id { get; set; }
     }
 }
