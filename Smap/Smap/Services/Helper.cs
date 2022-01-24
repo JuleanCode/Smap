@@ -75,10 +75,10 @@ namespace Smap.Services
                 Init();
 
                 db.DeleteAll<Ip>();
-                db.DeleteAll<Port>();
+                db.DeleteAll<OpenPort>();
                 db.DeleteAll<Report>();
-                db.DeleteAll<Scan>();
-                db.DeleteAll<Service>();
+                db.DeleteAll<Network>();
+                db.DeleteAll<Vulnerbility>();
                 db.DeleteAll<User>();
             }
         }

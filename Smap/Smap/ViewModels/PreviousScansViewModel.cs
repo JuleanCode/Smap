@@ -18,14 +18,14 @@ namespace Smap.ViewModels
 
         }
 
-        public ObservableCollection<Scan> PreviousScans { get; set; } = new ObservableCollection<Scan>()
-        {
-            new Scan(){Id = 1, Date = Convert.ToDateTime("04/15/2021") },
-            new Scan(){Id = 2, Date = Convert.ToDateTime("04/16/2021") },
-            new Scan(){Id = 3, Date = Convert.ToDateTime("05/15/2021") },
-            new Scan(){Id = 4, Date = Convert.ToDateTime("07/23/2021") }
-        };
-
-        public Scan SelectedScan { get; set; }
+   //     public ObservableCollection<Scan> PreviousScans { get; set; } = new ObservableCollection<Scan>()
+   //     {
+   //         new Scan(){Id = 1, Date = Convert.ToDateTime("04/15/2021") },
+   //         new Scan(){Id = 2, Date = Convert.ToDateTime("04/16/2021") },
+   //         new Scan(){Id = 3, Date = Convert.ToDateTime("05/15/2021") },
+   //         new Scan(){Id = 4, Date = Convert.ToDateTime("07/23/2021") }
+   //     };
+   //
+   //     public Scan SelectedScan { get; set; }
     }
 }
