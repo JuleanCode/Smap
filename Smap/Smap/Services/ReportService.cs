@@ -13,6 +13,7 @@ namespace Smap.Services
     public class ReportService
     {
         static SQLiteConnection db;
+        public static Report SelectedReport { get; set; }
         static void Init()
         {
             if (db != null)
