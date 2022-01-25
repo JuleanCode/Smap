@@ -10,9 +10,9 @@ using Xamarin.Forms.Xaml;
 namespace Smap.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class PreviousScansPage : ContentPage
+    public partial class PreviousReportsPage : ContentPage
     {
-        public PreviousScansPage()
+        public PreviousReportsPage()
         {
             InitializeComponent();
         }

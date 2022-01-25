@@ -2,18 +2,51 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:viewmodels="clr-namespace:Smap.ViewModels"
-             x:DataType="viewmodels:ReportViewModel"
              x:Class="Smap.Views.ReportPage"
-             Style="{StaticResource appBackground}">
+             Style="{StaticResource appBackground}"
+             Title="Rapportage van scan">
+
     <ContentPage.BindingContext>
         <viewmodels:ReportViewModel/>
     </ContentPage.BindingContext>
-    
+
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+        <StackLayout Style="{StaticResource pageMain}">
+            <Label Text="{Binding CurrentReport.Id, StringFormat='Report id: {0}'}" Style="{StaticResource titleMain}" HorizontalOptions="Start" Padding="20, 0"/>
+            <Label Text="Scan uitgevoerd op Ip:" Style="{StaticResource titleMain}" HorizontalOptions="Start" Padding="20, 0"/>
+            <Label Text="192.xxx.xxx.xx" Style="{StaticResource titleMainAddon}" HorizontalOptions="Start"/>
+            <Label Text="Scan uitgevoerd op datum:" Style="{StaticResource titleMain}" HorizontalOptions="Start" Padding="20, 0"/>
+            <Label Text="{Binding CurrentReport.Date}" Style="{StaticResource titleMainAddon}" HorizontalOptions="Start"/>
+            <Label Text="Scan uitgevoerd door:" Style="{StaticResource titleMain}" HorizontalOptions="Start" Padding="20, 0"/>
+            <Label Text="[Gebruiker]" Style="{StaticResource titleMainAddon}" HorizontalOptions="Start"/>
+            
+            <Frame Style="{StaticResource CollectionViewFrameStyle}">
+                <CollectionView ItemsSource="{Binding Vulnerbilitys}" 
+                                Style="{StaticResource MainCollectionViewStyle}"
+                                x:Name="CollectionView">
+                    <CollectionView.ItemsLayout>
+                        <GridItemsLayout Orientation="Vertical" Span="1"/>
+                    </CollectionView.ItemsLayout>
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <StackLayout>
+                                <Frame Style="{StaticResource ReportCollectionViewFrameStyle}">
+                                    <StackLayout>
+                                        <Label Text="{Binding vulnerability_risk_name, StringFormat='Vulnerabiltiy: {0}'}"
+                                               Style="{StaticResource textBoxMain}"
+                                               Padding="0"
+                                               HorizontalOptions="Start"/>
+                                        <Label Text="{Binding vulnerabiltiy_risk_value, StringFormat='Risico: {0}'}"
+                                               Padding="0"
+                                               Style="{StaticResource textBoxMain}" 
+                                               HorizontalOptions="Start"/>
+                                    </StackLayout>
+                                </Frame>
+                            </StackLayout>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </Frame>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

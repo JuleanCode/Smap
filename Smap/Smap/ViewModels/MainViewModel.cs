@@ -26,7 +26,7 @@ namespace Smap.ViewModels
 
             PreviousScans = new Command(() =>
             {
-                Application.Current.MainPage.Navigation.PushAsync(new PreviousScansPage());
+                Application.Current.MainPage.Navigation.PushAsync(new PreviousReportsPage());
             });
 
             Logout = new Command(() =>
