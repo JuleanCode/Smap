@@ -9,8 +9,8 @@ namespace Smap.Models
     {
         [PrimaryKey, AutoIncrement]
         public int Id { get; set; }
-        public DateTime Date { get; set; }
         public string Cve { get; set; }
-
+        public string Description { get; set; }
+        public int OpenPort_Id { get; set; }
     }
 }

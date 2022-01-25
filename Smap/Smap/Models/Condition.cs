@@ -5,16 +5,14 @@ using System.Text;
 
 namespace Smap.Models
 {
-    public class Report
+    public class Condition
     {
         [PrimaryKey, AutoIncrement]
         public int Id { get; set; }
-        public DateTime Date { get; set; }
-
-        //Relations
-        public int Ip_Id { get; set; }
-        public int Network_Id { get; set; }
-        public int Condition_Id { get; set; }
+        public string Company { get; set; }
+        public string Scope { get; set; }
+        public string Key { get; set; }
+        public DateTime EndDate { get; set; }
         public int User_Id { get; set; }
     }
 }
