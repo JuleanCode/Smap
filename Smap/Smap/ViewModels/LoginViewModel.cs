@@ -1,4 +1,5 @@
-﻿using Smap.Models;
+﻿using Smap.API;
+using Smap.Models;
 using Smap.Services;
 using Smap.Views;
 using System;
@@ -8,6 +9,7 @@ using System.ComponentModel;
 using System.IO;
 using System.Net;
 using System.Net.Http;
+using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Essentials;
 using Xamarin.Forms;

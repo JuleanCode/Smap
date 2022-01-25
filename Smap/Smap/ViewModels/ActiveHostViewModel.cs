@@ -16,17 +16,12 @@ namespace Smap.ViewModels
         public event PropertyChangedEventHandler PropertyChanged;
         public ActiveHostViewModel()
         {
+            RandomIpFill();
+            
             OnSelect = new Command(SelectIp);
         }
 
-        public ObservableCollection<Ip> IpList { get; set; } = new ObservableCollection<Ip>()
-        {
-            new Ip(){ Id = 1},
-            new Ip(){ Id = 2},
-            new Ip(){ Id = 3},
-            new Ip(){ Id = 4},
-            new Ip(){ Id = 5}
-        };
+        public ObservableCollection<Ip> IpList { get; set; } = new ObservableCollection<Ip>();
 
         public Ip SelectedIp { get; set; }
 
@@ -35,7 +30,21 @@ namespace Smap.ViewModels
         void SelectIp()
         {
             IpService.SelectedIp = SelectedIp;
-            Application.Current.MainPage.Navigation.PushAsync(new ReportPage());
+            Application.Current.MainPage.Navigation.PushAsync(new OpenPortsPage());
+        }
+
+        void RandomIpFill()
+        {
+            Random random = new Random();
+            for (int i = 0; i < random.Next(5, 10); i++) 
+            {
+                Ip ip = new Ip();
+                string adress = "192.168." + random.Next(1, 9) + random.Next(1, 9) + random.Next(1, 9) + "." + random.Next(1, 9) + random.Next(1, 9);
+
+                ip.Address = adress;
+
+                IpList.Add(ip);
+            }
         }
     }
 }

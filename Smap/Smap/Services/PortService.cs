@@ -13,6 +13,7 @@ namespace Smap.Services
     public class PortService
     {
         static SQLiteConnection db;
+        public static OpenPort SelectedPort { get; set; }
         static void Init()
         {
             if (db != null)

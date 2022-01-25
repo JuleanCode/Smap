@@ -24,7 +24,7 @@
                 <DataTemplate>
                     <StackLayout>
                         <Frame Style="{StaticResource CollectionViewFrameStyle}">
-                            <Label Text="{Binding Id, StringFormat='Ip adres: {0}'}" Style="{StaticResource textBoxMain}" HorizontalOptions="Start"/>
+                            <Label Text="{Binding Address, StringFormat='Ip: {0}'}" Style="{StaticResource textBoxMain}" HorizontalOptions="Start"/>
                         </Frame>
                     </StackLayout>
                 </DataTemplate>

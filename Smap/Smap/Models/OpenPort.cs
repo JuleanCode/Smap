@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Smap.Models
 {
-    internal class OpenPort
+    public class OpenPort
     {
         [PrimaryKey, AutoIncrement]
         public int Id { get; set; }

@@ -31,5 +31,12 @@ namespace Smap.Services
             db.CreateTable<User>();
             db.CreateTable<Models.Condition>();
         }
+
+        public static void CreateReport() 
+        {
+            Init();
+
+
+        }
     }
 }

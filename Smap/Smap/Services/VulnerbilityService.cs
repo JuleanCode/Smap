@@ -31,7 +31,7 @@ namespace Smap.Services
             db.CreateTable<Models.Condition>();
         }
 
-        public static Vulnerbility GetVulnerbility()
+        public static Vulnerbility GetVulnerbilitys()
         {
             Vulnerbility vulnerbility = new Vulnerbility
             {
