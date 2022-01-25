@@ -34,7 +34,9 @@ namespace Smap.Services
 
         public static void AddCondition(Models.Condition condition)
         {
+            Init();
 
+            db.Insert(condition);
         }
     }
 }

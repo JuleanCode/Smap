@@ -11,8 +11,10 @@
     </ContentPage.BindingContext>
 
     <StackLayout Style="{StaticResource pageMain}">
-        <Label Style="{StaticResource titleMain}">Disclaimer:</Label>
-        <Label Style="{StaticResource titleSecondary}">Only use this IP scanner when you have the required permissions!</Label>
+        <Entry Text="{Binding Company}" Placeholder="Email" Style="{StaticResource inputMain}"/>
+        <Entry Text="{Binding Scope}" Placeholder="Email" Style="{StaticResource inputMain}"/>
+        <Entry Text="{Binding Key}" Placeholder="Email" Style="{StaticResource inputMain}"/>
+        <DatePicker Date="{Binding EndDate}" />
 
         <Button Command="{Binding Accept}" Text="Accept" Style="{StaticResource btnMain}"/>
     </StackLayout>
