@@ -7,6 +7,7 @@ using Xamarin.Essentials;
 using Xamarin.Forms;
 using SQLite;
 using Smap.Models;
+using Smap.API;
 
 namespace Smap.Services
 {
@@ -31,15 +32,26 @@ namespace Smap.Services
             db.CreateTable<Models.Condition>();
         }
 
-        public static Vulnerbility GetVulnerbilitys()
+        public static async Task<List<Vulnerbility>> GetVulnerbilities()
         {
-            Vulnerbility vulnerbility = new Vulnerbility
-            {
-                Id = 1,
-                Cve = "CVE-2010-1219"
-            };
+            Init();
 
-            return vulnerbility;
+            Random random = new Random();
+            VulnerbiltiyResponse vulnerbiltiyResponse = await ResponseService.GetVulnerbiltiys();
+            List<Vulnerbility> vulnerbilities = new List<Vulnerbility>();
+            for (int i = 0; i < random.Next(1, 7); i++)
+            {
+                Vulnerbility vulnerbility = new Vulnerbility()
+                {
+                    Cve = vulnerbiltiyResponse.result.CVE_Items[i].cve.CVE_data_meta.ID,
+                    Description = vulnerbiltiyResponse.result.CVE_Items[i].cve.description.description_data[0].value,
+                    OpenPort_Id = PortService.SelectedPort.Id
+                };
+
+                vulnerbilities.Add(vulnerbility);
+            }
+
+            return vulnerbilities;
         }
     }
 }

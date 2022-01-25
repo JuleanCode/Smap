@@ -15,6 +15,5 @@ namespace Smap.Models
         public int Ip_Id { get; set; }
         public int Network_Id { get; set; }
         public int Condition_Id { get; set; }
-        public int User_Id { get; set; }
     }
 }

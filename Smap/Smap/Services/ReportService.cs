@@ -13,7 +13,7 @@ namespace Smap.Services
     public class ReportService
     {
         static SQLiteConnection db;
-        public static Report SelectedReport { get; set; }
+        public static Report CurrentReport { get; set; }
         static void Init()
         {
             if (db != null)
@@ -36,7 +36,12 @@ namespace Smap.Services
         {
             Init();
 
-
+            CurrentReport = new Report()
+            {
+                Date = DateTime.Now,
+                Ip_Id = IpService.SelectedIp.Id,
+                Condition_Id = ConditionService.CurrentCondition.Id
+            };
         }
     }
 }

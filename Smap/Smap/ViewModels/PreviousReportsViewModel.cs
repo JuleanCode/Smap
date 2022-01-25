@@ -33,7 +33,7 @@ namespace Smap.ViewModels
 
         void SelectReport()
         {
-            ReportService.SelectedReport = SelectedReport;
+            ReportService.CurrentReport = SelectedReport;
             Application.Current.MainPage.Navigation.PushAsync(new ReportPage());
         }
     }

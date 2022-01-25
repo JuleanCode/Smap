@@ -31,5 +31,20 @@ namespace Smap.Services
             db.CreateTable<User>();
             db.CreateTable<Models.Condition>();
         }
+
+        public static void SaveIp()
+        {
+            Init();
+            Ip ip = db.Table<Ip>().Where(i => i.Address == SelectedIp.Address).FirstOrDefault();
+            if(ip == null)
+            {
+                db.Insert(SelectedIp);
+                SelectedIp = db.Table<Ip>().Where(i => i.Address == SelectedIp.Address).FirstOrDefault();
+            }
+            else
+            {
+                SelectedIp = ip;
+            }
+        }
     }
 }

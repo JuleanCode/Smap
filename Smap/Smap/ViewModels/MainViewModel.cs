@@ -26,6 +26,7 @@ namespace Smap.ViewModels
 
             PreviousScans = new Command(() =>
             {
+                IpService.SelectedIp = null;
                 Application.Current.MainPage.Navigation.PushAsync(new PreviousReportsPage());
             });
 

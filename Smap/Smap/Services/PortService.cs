@@ -31,5 +31,22 @@ namespace Smap.Services
             db.CreateTable<User>();
             db.CreateTable<Models.Condition>();
         }
+
+        public static void SavePort()
+        {
+            Init(); 
+
+            OpenPort openPort = db.Table<OpenPort>().Where(o => o.Number == SelectedPort.Number && o.Ip_Id == IpService.SelectedIp.Id).FirstOrDefault();
+            if(openPort == null)
+            {
+                SelectedPort.Ip_Id = IpService.SelectedIp.Id;
+                db.Insert(SelectedPort);
+                SelectedPort = db.Table<OpenPort>().Where(o => o.Number == SelectedPort.Number && o.Ip_Id == IpService.SelectedIp.Id).FirstOrDefault();
+            }
+            else
+            {
+                SelectedPort = openPort;
+            }
+        }
     }
 }

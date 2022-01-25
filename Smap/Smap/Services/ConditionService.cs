@@ -10,10 +10,10 @@ using Smap.Models;
 
 namespace Smap.Services
 {
-    public class CondtionService
+    public class ConditionService
     {
         static SQLiteConnection db;
-        public static Models.Condition CurentCondition;
+        public static Models.Condition CurrentCondition;
         static void Init()
         {
             if (db != null)
