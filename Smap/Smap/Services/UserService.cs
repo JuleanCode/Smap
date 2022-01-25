@@ -19,7 +19,7 @@ namespace Smap.Services
             if (db != null)
                 return;
 
-            var dataBasePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "SmapDB.db");
+            var dataBasePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "SmapDB2.db");
 
             db = new SQLiteConnection(dataBasePath);
 
@@ -29,6 +29,7 @@ namespace Smap.Services
             db.CreateTable<Network>();
             db.CreateTable<Vulnerbility>();
             db.CreateTable<User>();
+            db.CreateTable<Models.Condition>();
         }
 
         public static void CreateUser(User user)

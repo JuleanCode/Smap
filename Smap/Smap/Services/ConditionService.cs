@@ -10,9 +10,10 @@ using Smap.Models;
 
 namespace Smap.Services
 {
-    public class ScanService
+    public class CondtionService
     {
         static SQLiteConnection db;
+        public static Models.Condition CurentCondition;
         static void Init()
         {
             if (db != null)
@@ -29,6 +30,11 @@ namespace Smap.Services
             db.CreateTable<Vulnerbility>();
             db.CreateTable<User>();
             db.CreateTable<Models.Condition>();
+        }
+
+        public static void AddCondition(Models.Condition condition)
+        {
+
         }
     }
 }
