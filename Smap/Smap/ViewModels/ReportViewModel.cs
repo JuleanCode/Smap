@@ -25,8 +25,8 @@ namespace Smap.ViewModels
 
         public ObservableCollection<Vulnerbility> Vulnerbilitys { get; set; } = new ObservableCollection<Vulnerbility>()
         {
-            new Vulnerbility() {Id = 1, vulnerability_risk_name = "EternalBlue", vulnerabiltiy_risk_value = 5},
-            new Vulnerbility() {Id = 2, vulnerability_risk_name = "OpenPort", vulnerabiltiy_risk_value = 2}
+            new Vulnerbility() {Id = 1, Cve = "EternalBlue"},
+            new Vulnerbility() {Id = 2, Cve = "OpenPort"}
         };
     }
 }

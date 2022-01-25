@@ -35,7 +35,6 @@ namespace Smap.Services
             Vulnerbility vulnerbility = new Vulnerbility
             {
                 Id = 1,
-                Date = DateTime.Now,
                 Cve = "CVE-2010-1219"
             };
 

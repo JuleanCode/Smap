@@ -13,6 +13,7 @@ namespace Smap.Services
     public class IpService
     {
         static SQLiteConnection db;
+        public static Ip SelectedIp;
         static void Init()
         {
             if (db != null)

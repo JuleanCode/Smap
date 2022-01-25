@@ -14,6 +14,10 @@ namespace Smap.ViewModels
     public class ActiveHostViewModel : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
+        public ActiveHostViewModel()
+        {
+            OnSelect = new Command(SelectIp);
+        }
 
         public ObservableCollection<Ip> IpList { get; set; } = new ObservableCollection<Ip>()
         {
@@ -25,5 +29,13 @@ namespace Smap.ViewModels
         };
 
         public Ip SelectedIp { get; set; }
+
+        public Command OnSelect { get; set; }
+
+        void SelectIp()
+        {
+            IpService.SelectedIp = SelectedIp;
+            Application.Current.MainPage.Navigation.PushAsync(new ReportPage());
+        }
     }
 }
