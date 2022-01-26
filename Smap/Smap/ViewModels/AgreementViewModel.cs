@@ -93,7 +93,7 @@ namespace Smap.ViewModels
             Services.ConditionService.CurrentCondition = condition;
             Services.ConditionService.AddCondition(condition);
 
-            Application.Current.MainPage.Navigation.PushAsync(new ScannerPage());
+            Application.Current.MainPage.Navigation.PushAsync(new MainPage());
         }
     }
 }

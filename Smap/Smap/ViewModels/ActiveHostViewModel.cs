@@ -39,7 +39,7 @@ namespace Smap.ViewModels
             for (int i = 0; i < random.Next(5, 10); i++) 
             {
                 Ip ip = new Ip();
-                string adress = "192.168." + random.Next(1, 9) + random.Next(1, 9) + random.Next(1, 9) + "." + random.Next(1, 9) + random.Next(1, 9);
+                string adress = "192.168." + random.Next(1, 2) + random.Next(1, 5) + random.Next(1, 4) + "." + random.Next(1, 5) + random.Next(1, 4);
 
                 ip.Address = adress;
 
