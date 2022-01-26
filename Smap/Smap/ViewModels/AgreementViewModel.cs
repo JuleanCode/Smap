@@ -90,8 +90,8 @@ namespace Smap.ViewModels
 
         void OnAccept()
         {
-            Services.CondtionService.CurentCondition = condition;
-            Services.CondtionService.AddCondition(condition);
+            Services.ConditionService.CurrentCondition = condition;
+            Services.ConditionService.AddCondition(condition);
 
             Application.Current.MainPage.Navigation.PushAsync(new ScannerPage());
         }
