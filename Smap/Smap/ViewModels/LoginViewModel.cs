@@ -78,7 +78,7 @@ namespace Smap.ViewModels
                     //get the curent location of the user
                     Geolocation.GetLastKnownLocationAsync().ToString(); ;
 
-                    Application.Current.MainPage.Navigation.PushAsync(new MainPage());
+                    Application.Current.MainPage.Navigation.PushAsync(new AgreementPage());
                 }
                 else
                 {

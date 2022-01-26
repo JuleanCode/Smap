@@ -11,9 +11,9 @@
     </ContentPage.BindingContext>
 
     <StackLayout Style="{StaticResource pageMain}">
-        <Entry Text="{Binding Company}" Placeholder="Email" Style="{StaticResource inputMain}"/>
-        <Entry Text="{Binding Scope}" Placeholder="Email" Style="{StaticResource inputMain}"/>
-        <Entry Text="{Binding Key}" Placeholder="Email" Style="{StaticResource inputMain}"/>
+        <Entry Text="{Binding Company}" Placeholder="Company" Style="{StaticResource inputMain}"/>
+        <Entry Text="{Binding Scope}" Placeholder="Scope" Style="{StaticResource inputMain}"/>
+        <Entry Text="{Binding Key}" Placeholder="Key" Style="{StaticResource inputMain}"/>
         <DatePicker Date="{Binding EndDate}" />
 
         <Button Command="{Binding Accept}" Text="Accept" Style="{StaticResource btnMain}"/>
