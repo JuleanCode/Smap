@@ -20,34 +20,31 @@
             <Label Text="{Binding CurrentReport.Date}" Style="{StaticResource titleMainAddon}" HorizontalOptions="Start"/>
             <Label Text="Scan uitgevoerd voor:" Style="{StaticResource titleMain}" HorizontalOptions="Start" Padding="20, 0"/>
             <Label Text="{Binding CurrentCondition.Company}" Style="{StaticResource titleMainAddon}" HorizontalOptions="Start"/>
-            
+
             <Frame Style="{StaticResource CollectionViewFrameStyle}">
-                <RefreshView IsRefreshing="{Binding IsRefreshing}"
-                             Command="{Binding Refresh}">
-                    <CollectionView ItemsSource="{Binding Vulnerbilities}"
+                <CollectionView ItemsSource="{Binding Vulnerbilities}"
                                     SelectedItem="{Binding SelectedVulnerbility}"
                                     Style="{StaticResource MainCollectionViewStyle}"
                                     SelectionChangedCommand="{Binding OnSelect}"
                                     x:Name="CollectionView">
-                        <CollectionView.ItemsLayout>
-                            <GridItemsLayout Orientation="Vertical" Span="1"/>
-                        </CollectionView.ItemsLayout>
-                        <CollectionView.ItemTemplate>
-                            <DataTemplate>
-                                <StackLayout>
-                                    <Frame Style="{StaticResource ReportCollectionViewFrameStyle}">
-                                        <StackLayout>
-                                            <Label Text="{Binding Cve, StringFormat='Vulnerabiltiy CVE code: {0}'}"
-                                                   Style="{StaticResource textBoxMain}"
-                                                   Padding="0"
-                                                   HorizontalOptions="Start"/>
-                                        </StackLayout>
-                                    </Frame>
-                                </StackLayout>
-                            </DataTemplate>
-                        </CollectionView.ItemTemplate>
-                    </CollectionView>
-                </RefreshView>
+                    <CollectionView.ItemsLayout>
+                        <GridItemsLayout Orientation="Vertical" Span="1"/>
+                    </CollectionView.ItemsLayout>
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <StackLayout>
+                                <Frame Style="{StaticResource ReportCollectionViewFrameStyle}">
+                                    <StackLayout>
+                                        <Label Text="{Binding Cve, StringFormat='Vulnerabiltiy CVE code: {0}'}"
+                                                Style="{StaticResource textBoxMain}"
+                                                Padding="0"
+                                                HorizontalOptions="Start"/>
+                                    </StackLayout>
+                                </Frame>
+                            </StackLayout>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
             </Frame>
         </StackLayout>
     </ContentPage.Content>

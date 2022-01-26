@@ -22,16 +22,6 @@ namespace Smap.ViewModels
         public User UserOfReport { get; set; }
         public ObservableCollection<Vulnerbility> Vulnerbilities { get; set; } = new ObservableCollection<Vulnerbility>();
         public Vulnerbility SelectedVulnerbility { get; set; }
-        bool isRefreshing;
-        public bool IsRefreshing
-        {
-            get => isRefreshing;
-            set 
-            {
-                isRefreshing = value;
-                OnPropertyChanged(nameof(IsRefreshing));
-            }
-        }
 
         public ReportViewModel()
         {
@@ -48,7 +38,6 @@ namespace Smap.ViewModels
 
             OnSelect = new Command(ShowVulnerbilityDescription);
 
-            Refresh = new Command(ExecuteRefresh);
         }
 
         public Command OnSelect { get; }
@@ -57,16 +46,7 @@ namespace Smap.ViewModels
 
         void ShowVulnerbilityDescription()
         {
-            Application.Current.MainPage.DisplayAlert(SelectedVulnerbility.Cve, SelectedVulnerbility.Description, "Oke");
-        }
-
-        void ExecuteRefresh()
-        {
-            ObservableCollection<Vulnerbility> temp = Vulnerbilities;
-            Vulnerbilities.Clear();
-            Vulnerbilities = temp;
-
-            IsRefreshing = false;
+            Application.Current.MainPage.DisplayAlert(SelectedVulnerbility.Cve, SelectedVulnerbility.Description, "Ok");
         }
 
         protected void OnPropertyChanged(string propertyName)

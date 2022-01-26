@@ -21,7 +21,7 @@ namespace Smap.ViewModels
 
             NewScan = new Command(() =>
             {
-                Application.Current.MainPage.Navigation.PushAsync(new AgreementPage());
+                Application.Current.MainPage.Navigation.PushAsync(new ScannerPage());
             });
 
             PreviousScans = new Command(() =>
