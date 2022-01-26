@@ -12,7 +12,7 @@
     <StackLayout Style="{StaticResource pageMain}">
 
         <Entry Text="{Binding Email}" Placeholder="Email" Style="{StaticResource inputMain}"/>
-        <Entry Text="{Binding Password}" Placeholder="Password" Style="{StaticResource inputMain}"/>
+        <Entry Text="{Binding Password}" Placeholder="Password" Style="{StaticResource inputMain}" IsPassword="True"/>
 
         <Button Command="{Binding Login}" Text="Login" Style="{StaticResource btnMain}"/>
         <Button Command="{Binding Register}" Text="Register" Style="{StaticResource btnMain}"/>
