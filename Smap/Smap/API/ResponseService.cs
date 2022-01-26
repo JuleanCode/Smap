@@ -1,6 +1,8 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Net;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,22 +11,26 @@ namespace Smap.API
 {
     public static class ResponseService
     {
-        public static async Task<VulnerbiltiyResponse> GetVulnerbiltiys()
+        
+        public static VulnerbiltiyResponse GetVulneribilties()
         {
-            VulnerbiltiyResponse vulnerbiltiyResponse = new VulnerbiltiyResponse();
+            WebRequest request = HttpWebRequest.Create("https://services.nvd.nist.gov/rest/json/cves/1.0/");
+            WebResponse response = request.GetResponse();
+            StreamReader reader = new StreamReader(response.GetResponseStream());
 
-            var url = "https://services.nvd.nist.gov/rest/json/cves/1.0/";
 
-            using (HttpClient client = new HttpClient())
-            {
-                var response = await client.GetAsync(url);
-                var json = await response.Content.ReadAsStringAsync();
 
-                vulnerbiltiyResponse = JsonConvert.DeserializeObject<VulnerbiltiyResponse>(json);
+            string Vulnerabilities_JSON = reader.ReadToEnd();
 
-            }
 
-            return vulnerbiltiyResponse;
+
+            VulnerbiltiyResponse vulnerabilities = Newtonsoft.Json.JsonConvert.DeserializeObject<VulnerbiltiyResponse>(Vulnerabilities_JSON);
+
+
+
+            return vulnerabilities;
         }
     }
+
+
 }

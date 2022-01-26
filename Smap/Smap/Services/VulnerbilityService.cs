@@ -32,12 +32,12 @@ namespace Smap.Services
             db.CreateTable<Models.Condition>();
         }
 
-        public static async Task<List<Vulnerbility>> GetVulnerbilities()
+        public static List<Vulnerbility> GetVulnerbilities()
         {
             Init();
 
             Random random = new Random();
-            VulnerbiltiyResponse vulnerbiltiyResponse = await ResponseService.GetVulnerbiltiys();
+            VulnerbiltiyResponse vulnerbiltiyResponse = ResponseService.GetVulneribilties();
             List<Vulnerbility> vulnerbilities = new List<Vulnerbility>();
             for (int i = 0; i < random.Next(1, 7); i++)
             {

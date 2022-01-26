@@ -41,7 +41,7 @@ namespace Smap.ViewModels
             }
             else
             {
-                Task.Run(async () => await GetVulnerbilities());
+                GetVulnerbilities();
                 ReportIp = IpService.SelectedIp;
                 ReportPort = PortService.SelectedPort;
             }
@@ -76,9 +76,9 @@ namespace Smap.ViewModels
                 handler(this, new PropertyChangedEventArgs(propertyName));
         }
 
-        async Task GetVulnerbilities()
+        void GetVulnerbilities()
         {
-            List<Vulnerbility> tempVulnerbilities = await VulnerbilityService.GetVulnerbilities();
+            List<Vulnerbility> tempVulnerbilities = VulnerbilityService.GetVulnerbilities();
             foreach(Vulnerbility vulnerbility in tempVulnerbilities)
             {
                 Vulnerbilities.Add(vulnerbility);
