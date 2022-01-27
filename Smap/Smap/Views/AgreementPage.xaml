@@ -2,20 +2,43 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:viewmodels="clr-namespace:Smap.ViewModels"
-             x:DataType="viewmodels:AgreementViewModel"
              x:Class="Smap.Views.AgreementPage"
-             Style="{StaticResource appBackground}">
+             Style="{StaticResource appBackground}"
+             Title="Bedrijfsgegevens">
     
     <ContentPage.BindingContext>
         <viewmodels:AgreementViewModel/>
     </ContentPage.BindingContext>
 
     <StackLayout Style="{StaticResource pageMain}">
-        <Entry Text="{Binding Company}" Placeholder="Company" Style="{StaticResource inputMain}"/>
+        <Entry Text="{Binding Company}" Placeholder="Bedrijfsnaam" Style="{StaticResource inputMain}"/>
         <Entry Text="{Binding Scope}" Placeholder="Scope" Style="{StaticResource inputMain}"/>
         <Entry Text="{Binding Key}" Placeholder="Key" Style="{StaticResource inputMain}"/>
-        <DatePicker Date="{Binding EndDate}" />
+        <DatePicker Date="{Binding EndDate}"  TextColor="White"/>
 
-        <Button Command="{Binding Accept}" Text="Accept" Style="{StaticResource btnMain}"/>
+        <Button Command="{Binding AddCompany}" Text="Bedrijf toevoegen" Style="{StaticResource btnMain}"/>
+
+        <CollectionView ItemsSource="{Binding Companies}" 
+                            SelectedItem="{Binding SelectedCompany}"
+                            SelectionChangedCommand="{Binding SelectCompany}"
+                            Style="{StaticResource MainCollectionViewStyle}"
+                            x:Name="CollectionView">
+            <CollectionView.ItemsLayout>
+                <GridItemsLayout Orientation="Vertical" Span="1"/>
+            </CollectionView.ItemsLayout>
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <StackLayout>
+                        <Frame Style="{StaticResource CollectionViewFrameStyle}">
+                            <StackLayout>
+                                <Label Text="{Binding Name, StringFormat='Bedrijf: {0}'}" Style="{StaticResource textBoxMain}" HorizontalOptions="Start" Padding="0"/>
+                                <Label Text="{Binding Scope, StringFormat='Scope: {0}'}" Style="{StaticResource textBoxMain}" HorizontalOptions="Start" Padding="0"/>
+                                <Label Text="{Binding EndDate, StringFormat='Einddatum: {0}'}" Style="{StaticResource textBoxMain}" HorizontalOptions="Start" Padding="0"/>
+                            </StackLayout>
+                        </Frame>
+                    </StackLayout>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
     </StackLayout>
 </ContentPage>

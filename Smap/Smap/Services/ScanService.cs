@@ -28,7 +28,7 @@ namespace Smap.Services
             db.CreateTable<Network>();
             db.CreateTable<Vulnerbility>();
             db.CreateTable<User>();
-            db.CreateTable<Models.Condition>();
+            db.CreateTable<Models.Company>();
         }
     }
 }

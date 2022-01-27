@@ -16,5 +16,7 @@
 
         <Button Command="{Binding Login}" Text="Login" Style="{StaticResource btnMain}"/>
         <Button Command="{Binding Register}" Text="Register" Style="{StaticResource btnMain}"/>
+
+        <Label Text="wachtwoord vergeten" Style="{StaticResource titleMainAddon}"/>
     </StackLayout>
 </ContentPage>

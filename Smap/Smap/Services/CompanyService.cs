@@ -10,10 +10,10 @@ using Smap.Models;
 
 namespace Smap.Services
 {
-    public class ConditionService
+    public class CompanyService
     {
         static SQLiteConnection db;
-        public static Models.Condition CurrentCondition;
+        public static Models.Company CurrentCompany;
         static void Init()
         {
             if (db != null)
@@ -29,14 +29,23 @@ namespace Smap.Services
             db.CreateTable<Network>();
             db.CreateTable<Vulnerbility>();
             db.CreateTable<User>();
-            db.CreateTable<Models.Condition>();
+            db.CreateTable<Models.Company>();
         }
 
-        public static void AddCondition(Models.Condition condition)
+        public static void AddCompany(Models.Company company)
         {
             Init();
 
-            db.Insert(condition);
+            db.Insert(company);
+        }
+
+        public static List<Company> GetCompanies() 
+        {
+            Init();
+
+            List<Company> companies = db.Table<Company>().ToList();
+
+            return companies;
         }
     }
 }

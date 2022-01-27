@@ -7,6 +7,7 @@ using Xamarin.Essentials;
 using Xamarin.Forms;
 using SQLite;
 using Smap.Models;
+using System.Collections.ObjectModel;
 
 namespace Smap.Services
 {
@@ -29,7 +30,7 @@ namespace Smap.Services
             db.CreateTable<Network>();
             db.CreateTable<Vulnerbility>();
             db.CreateTable<User>();
-            db.CreateTable<Models.Condition>();
+            db.CreateTable<Models.Company>();
         }
 
         public static void CreateReport() 
@@ -40,8 +41,24 @@ namespace Smap.Services
             {
                 Date = DateTime.Now,
                 Ip_Id = IpService.SelectedIp.Id,
-                Condition_Id = ConditionService.CurrentCondition.Id
+                Company_Id = CompanyService.CurrentCompany.Id
             };
+        }
+
+        public static void SaveReport(ObservableCollection<Vulnerbility> vulnerbilities)
+        {
+            Init();
+            VulnerbilityService.SaveVulnerabilities(vulnerbilities);
+            db.Insert(CurrentReport);
+        }
+
+        public static List<Report> GetReports()
+        {
+            Init();
+
+            List<Report> reports = db.Table<Report>().Where(r => r.Company_Id == CompanyService.CurrentCompany.Id).ToList();
+
+            return reports;
         }
     }
 }

@@ -14,10 +14,10 @@
         <StackLayout>
             <Label Text="{Binding LoggedInUser.Id, StringFormat='Welkom, user {0}!'}"
                    Style="{StaticResource titleMain}"/>
-            <Button Text="Nieuwe scan" Style="{StaticResource btnMain}" Command="{Binding NewScan}"/>
-            <Button Text="Uitgevoerde scans" Style="{StaticResource btnMain}" Command="{Binding PreviousScans}"/>
-            <Button Text="Netwerkinformatie" Style="{StaticResource btnMain}" Command="{Binding NetworkInfo}"/>
-            <Button Text="Logout" Style="{StaticResource btnAlert}" Command="{Binding Logout}"/>
+            <Button Text="Nieuwe scan" Style="{StaticResource btnMainWide}" Command="{Binding NewScan}"/>
+            <Button Text="Uitgevoerde scans" Style="{StaticResource btnMainWide}" Command="{Binding PreviousScans}"/>
+            <Button Text="Netwerkinformatie" Style="{StaticResource btnMainWide}" Command="{Binding NetworkInfo}"/>
+            <Button Text="Logout" Style="{StaticResource btnAlertWide}" Command="{Binding Logout}"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

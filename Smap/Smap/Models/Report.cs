@@ -14,6 +14,6 @@ namespace Smap.Models
         //Relations
         public int Ip_Id { get; set; }
         public int Network_Id { get; set; }
-        public int Condition_Id { get; set; }
+        public int Company_Id { get; set; }
     }
 }

@@ -16,10 +16,9 @@ namespace Smap.ViewModels
     {
         public event PropertyChangedEventHandler PropertyChanged;
         public Report CurrentReport { get; set; } = ReportService.CurrentReport;
-        public Models.Condition CurrentCondition { get; set; } = ConditionService.CurrentCondition;
+        public Models.Company ReportCompany { get; set; } = CompanyService.CurrentCompany;
         public Ip ReportIp { get; set; }
         public OpenPort ReportPort { get; set; }
-        public User UserOfReport { get; set; }
         public ObservableCollection<Vulnerbility> Vulnerbilities { get; set; } = new ObservableCollection<Vulnerbility>();
         public Vulnerbility SelectedVulnerbility { get; set; }
 
@@ -27,22 +26,26 @@ namespace Smap.ViewModels
         {
             if(IpService.SelectedIp == null)
             {
-                //code voor het ophalen van eerdere report data, moet gedaan worden vanuit de services
+                ReportIp = IpService.GetReportIp(CurrentReport.Ip_Id);
+                ReportPort = PortService.GetReportOpenPort(ReportIp.Id);
+                GetSavedVulnerbilities();
             }
             else
             {
-                GetVulnerbilities();
+                GetNewVulnerbilities();
                 ReportIp = IpService.SelectedIp;
                 ReportPort = PortService.SelectedPort;
             }
 
             OnSelect = new Command(ShowVulnerbilityDescription);
 
+            Save = new Command(OnSave);
+
         }
 
         public Command OnSelect { get; }
 
-        public ICommand Refresh { get; set; }
+        public ICommand Save { get; }
 
         void ShowVulnerbilityDescription()
         {
@@ -56,13 +59,28 @@ namespace Smap.ViewModels
                 handler(this, new PropertyChangedEventArgs(propertyName));
         }
 
-        void GetVulnerbilities()
+        void GetNewVulnerbilities()
         {
-            List<Vulnerbility> tempVulnerbilities = VulnerbilityService.GetVulnerbilities();
+            List<Vulnerbility> tempVulnerbilities = VulnerbilityService.GetNewVulnerbilities();
             foreach(Vulnerbility vulnerbility in tempVulnerbilities)
             {
                 Vulnerbilities.Add(vulnerbility);
             }
+        }
+
+        void GetSavedVulnerbilities()
+        {
+            List<Vulnerbility> tempVulnerbilities = VulnerbilityService.GetReportVulnerbilities(ReportPort.Id);
+            foreach (Vulnerbility vulnerbility in tempVulnerbilities)
+            {
+                Vulnerbilities.Add(vulnerbility);
+            }
+        }
+
+        void OnSave()
+        {
+            ReportService.SaveReport(Vulnerbilities);
+            Application.Current.MainPage.DisplayAlert("Succes", "Report succesvol opgeslagen", "Ok");
         }
     }
 }

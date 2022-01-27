@@ -29,7 +29,7 @@ namespace Smap.Services
             db.CreateTable<Network>();
             db.CreateTable<Vulnerbility>();
             db.CreateTable<User>();
-            db.CreateTable<Models.Condition>();
+            db.CreateTable<Models.Company>();
         }
 
         public static void SaveIp()
@@ -45,6 +45,14 @@ namespace Smap.Services
             {
                 SelectedIp = ip;
             }
+        }
+
+        public static Ip GetReportIp(int id)
+        {
+            Init();
+            Ip ip = db.Table<Ip>().Where(i => i.Id == id).FirstOrDefault();
+
+            return ip;
         }
     }
 }

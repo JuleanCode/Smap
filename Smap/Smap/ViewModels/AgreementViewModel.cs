@@ -27,73 +27,106 @@ namespace Smap.ViewModels
             }
         }
 
-        private Models.Condition condition = new Models.Condition();
+        private Models.Company company = new Models.Company();
+
+        public Company SelectedCompany { get; set; }
+
+        public ObservableCollection<Company> Companies { get; set; } = new ObservableCollection<Company>();
 
         public AgreementViewModel()
         {
-            Accept = new Command(OnAccept);
+            AddCompany = new Command(OnAddCompany);
+
+            SelectCompany = new Command(OnSelectCompany);
+
+            GetCompanies();
         }
 
-        public ICommand Accept { get; }
+        public ICommand AddCompany { get; }
+        public ICommand SelectCompany { get; }
 
         public string Company
         {
-            get => condition.Company;
+            get => company.Name;
             set
             {
-                if (value == condition.Company)
+                if (value == company.Name)
                     return;
 
-                condition.Company = value;
+                company.Name = value;
                 NotifyPropertyChanged("Company");
             }
         }
 
         public string Scope
         {
-            get => condition.Scope;
+            get => company.Scope;
             set
             {
-                if (value == condition.Scope)
+                if (value == company.Scope)
                     return;
 
-                condition.Scope = value;
+                company.Scope = value;
                 NotifyPropertyChanged("Scope");
             }
         }
 
         public string Key
         {
-            get => condition.Key;
+            get => company.Key;
             set
             {
-                if (value == condition.Key)
+                if (value == company.Key)
                     return;
 
-                condition.Key = value;
+                company.Key = value;
                 NotifyPropertyChanged("Key");
             }
         }
 
         public DateTime EndDate
         {
-            get => condition.EndDate;
+            get => company.EndDate;
             set
             {
-                if (value == condition.EndDate)
+                if (value == company.EndDate)
                     return;
 
-                condition.EndDate = value;
+                company.EndDate = value;
                 NotifyPropertyChanged("EndDate");
             }
         }
 
-        void OnAccept()
+        void OnAddCompany()
         {
-            Services.ConditionService.CurrentCondition = condition;
-            Services.ConditionService.AddCondition(condition);
+            string companyKey = "1234";
+            if(Key == companyKey)
+            {
+                Services.CompanyService.CurrentCompany = company;
+                Services.CompanyService.AddCompany(company);
+
+                Application.Current.MainPage.Navigation.PushAsync(new MainPage());
+            }
+            else
+            {
+                Application.Current.MainPage.DisplayAlert("Foute key", "De ingevoerde sleutel komt niet overeen met de sleutel van het bedrijf", "Ok");
+            }
+        }
+
+        void OnSelectCompany()
+        {
+            CompanyService.CurrentCompany = SelectedCompany;
 
             Application.Current.MainPage.Navigation.PushAsync(new MainPage());
+        }
+
+        void GetCompanies()
+        {
+            List<Company> companies = CompanyService.GetCompanies();
+            foreach (Company company in companies)
+            {
+                Companies.Add(company);
+            }
         }
     }
 }

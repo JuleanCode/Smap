@@ -33,13 +33,6 @@ namespace Smap.ViewModels
             //moet gedaan worden om de juiste id's te verkrijgen
             IpService.SaveIp();
             PortService.SavePort();
-            //Dit is al ingevuld wanneer het condition scherm erbij komt, dus wordt dan ook verwijderd
-            ConditionService.CurrentCondition = new Models.Condition()
-            {
-                Id = 1,
-                Company = "Coca Cola",
-                User_Id = UserService.LoggedInUser.Id
-            };
             //Random vulnerability's
             ReportService.CreateReport();
             Application.Current.MainPage.Navigation.PushAsync(new ReportPage());

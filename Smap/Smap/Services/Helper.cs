@@ -28,7 +28,7 @@ namespace Smap.Services
             db.CreateTable<Network>();
             db.CreateTable<Vulnerbility>();
             db.CreateTable<User>();
-            db.CreateTable<Models.Condition>();
+            db.CreateTable<Models.Company>();
         }
 
         public static void FreshInstall()
@@ -81,7 +81,7 @@ namespace Smap.Services
                 db.DeleteAll<Network>();
                 db.DeleteAll<Vulnerbility>();
                 db.DeleteAll<User>();
-                db.DeleteAll<Models.Condition>();
+                db.DeleteAll<Models.Company>();
             }
         }
     }

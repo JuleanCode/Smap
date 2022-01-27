@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Security.Cryptography.X509Certificates;
 using System.Net.Security;
+using Xamarin.Forms;
 
 namespace Smap.API
 {
@@ -27,8 +28,16 @@ namespace Smap.API
 
 
 
-            VulnerbiltiyResponse vulnerabilities = Newtonsoft.Json.JsonConvert.DeserializeObject<VulnerbiltiyResponse>(Vulnerabilities_JSON);
+            VulnerbiltiyResponse vulnerabilities = null;
 
+            try
+            {
+                vulnerabilities = Newtonsoft.Json.JsonConvert.DeserializeObject<VulnerbiltiyResponse>(Vulnerabilities_JSON);
+            }
+            catch (Exception ex)
+            {
+                Application.Current.MainPage.DisplayAlert("Fout", "Er is iets fout gegaan met het ophalen van de vulnerabilties, probeer het later opnieuw", "Ok");
+            }
 
 
             return vulnerabilities;

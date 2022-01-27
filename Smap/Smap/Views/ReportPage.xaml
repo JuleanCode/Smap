@@ -11,41 +11,47 @@
     </ContentPage.BindingContext>
 
     <ContentPage.Content>
-        <StackLayout Style="{StaticResource pageMain}">
-            <Label Text="Scan uitgevoerd op Ip:" Style="{StaticResource titleMain}" HorizontalOptions="Start" Padding="20, 0"/>
-            <Label Text="{Binding ReportIp.Address}" Style="{StaticResource titleMainAddon}" HorizontalOptions="Start"/>
-            <Label Text="Scan uitgevoerd op Poort:" Style="{StaticResource titleMain}" HorizontalOptions="Start" Padding="20, 0"/>
-            <Label Text="{Binding ReportPort.Number}" Style="{StaticResource titleMainAddon}" HorizontalOptions="Start"/>
-            <Label Text="Scan uitgevoerd op datum:" Style="{StaticResource titleMain}" HorizontalOptions="Start" Padding="20, 0"/>
-            <Label Text="{Binding CurrentReport.Date}" Style="{StaticResource titleMainAddon}" HorizontalOptions="Start"/>
-            <Label Text="Scan uitgevoerd voor:" Style="{StaticResource titleMain}" HorizontalOptions="Start" Padding="20, 0"/>
-            <Label Text="{Binding CurrentCondition.Company}" Style="{StaticResource titleMainAddon}" HorizontalOptions="Start"/>
+        <ScrollView>
+            <StackLayout Style="{StaticResource pageMain}">
+                <Label Text="Scan uitgevoerd op Ip:" Style="{StaticResource titleMain}" HorizontalOptions="Start" Padding="20, 0"/>
+                <Label Text="{Binding ReportIp.Address}" Style="{StaticResource titleMainAddon}" HorizontalOptions="Start"/>
+                <Label Text="Scan uitgevoerd op Poort:" Style="{StaticResource titleMain}" HorizontalOptions="Start" Padding="20, 0"/>
+                <Label Text="{Binding ReportPort.Number}" Style="{StaticResource titleMainAddon}" HorizontalOptions="Start"/>
+                <Label Text="Scan uitgevoerd op datum:" Style="{StaticResource titleMain}" HorizontalOptions="Start" Padding="20, 0"/>
+                <Label Text="{Binding CurrentReport.Date}" Style="{StaticResource titleMainAddon}" HorizontalOptions="Start"/>
+                <Label Text="Scan uitgevoerd voor:" Style="{StaticResource titleMain}" HorizontalOptions="Start" Padding="20, 0"/>
+                <Label Text="{Binding ReportCompany.Name}" Style="{StaticResource titleMainAddon}" HorizontalOptions="Start"/>
 
-            <Frame Style="{StaticResource CollectionViewFrameStyle}">
-                <CollectionView ItemsSource="{Binding Vulnerbilities}"
-                                    SelectedItem="{Binding SelectedVulnerbility}"
-                                    Style="{StaticResource MainCollectionViewStyle}"
-                                    SelectionChangedCommand="{Binding OnSelect}"
-                                    x:Name="CollectionView">
-                    <CollectionView.ItemsLayout>
-                        <GridItemsLayout Orientation="Vertical" Span="1"/>
-                    </CollectionView.ItemsLayout>
-                    <CollectionView.ItemTemplate>
-                        <DataTemplate>
-                            <StackLayout>
-                                <Frame Style="{StaticResource ReportCollectionViewFrameStyle}">
-                                    <StackLayout>
-                                        <Label Text="{Binding Cve, StringFormat='Vulnerabiltiy CVE code: {0}'}"
-                                                Style="{StaticResource textBoxMain}"
-                                                Padding="0"
-                                                HorizontalOptions="Start"/>
-                                    </StackLayout>
-                                </Frame>
-                            </StackLayout>
-                        </DataTemplate>
-                    </CollectionView.ItemTemplate>
-                </CollectionView>
-            </Frame>
-        </StackLayout>
+                <Label Text="Gevonden vulnerbilities:" Style="{StaticResource titleMain}" HorizontalOptions="Start" Padding="20, 0"/>
+
+                <Frame Style="{StaticResource CollectionViewFrameStyle}" HeightRequest="240">
+                    <CollectionView ItemsSource="{Binding Vulnerbilities}"
+                                        SelectedItem="{Binding SelectedVulnerbility}"
+                                        Style="{StaticResource MainCollectionViewStyle}"
+                                        SelectionChangedCommand="{Binding OnSelect}"
+                                        x:Name="CollectionView">
+                        <CollectionView.ItemsLayout>
+                            <GridItemsLayout Orientation="Vertical" Span="1"/>
+                        </CollectionView.ItemsLayout>
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <StackLayout>
+                                    <Frame Style="{StaticResource ReportCollectionViewFrameStyle}">
+                                        <StackLayout>
+                                            <Label Text="{Binding Cve, StringFormat='Vulnerabiltiy CVE code: {0}'}"
+                                                    Style="{StaticResource textBoxMain}"
+                                                    Padding="0"
+                                                    HorizontalOptions="Start"/>
+                                        </StackLayout>
+                                    </Frame>
+                                </StackLayout>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                </Frame>
+                <Button Text="Opslaan" Style="{StaticResource btnMainWide}" Margin="15, 5" Command="{Binding Save}"/>
+                <Button Text="Verwijder rapport" Style="{StaticResource btnAlertWide}" Margin="15, 5"/>
+            </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>

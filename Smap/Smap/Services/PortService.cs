@@ -29,7 +29,7 @@ namespace Smap.Services
             db.CreateTable<Network>();
             db.CreateTable<Vulnerbility>();
             db.CreateTable<User>();
-            db.CreateTable<Models.Condition>();
+            db.CreateTable<Models.Company>();
         }
 
         public static void SavePort()
@@ -47,6 +47,14 @@ namespace Smap.Services
             {
                 SelectedPort = openPort;
             }
+        }
+
+        public static OpenPort GetReportOpenPort(int id)
+        {
+            Init();
+
+            OpenPort openPort = db.Table<OpenPort>().Where(op => op.Ip_Id == id).FirstOrDefault();
+            return openPort;
         }
     }
 }

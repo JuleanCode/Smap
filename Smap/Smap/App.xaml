@@ -70,10 +70,24 @@
                 <Setter Property="TextColor" Value="{DynamicResource Key=primaryTekstColor}" />
             </Style>
 
+            <Style  x:Key="btnMainWide"  TargetType="Button">
+                <Setter Property="Margin" Value="80, 5"/>
+                <Setter Property="Font" Value="Bold,20"/>
+                <Setter Property="BackgroundColor" Value="{DynamicResource Key=primaryButtonColor}"/>
+                <Setter Property="TextColor" Value="{DynamicResource Key=primaryTekstColor}" />
+            </Style>
+
             <Style  x:Key="btnAlert"  TargetType="Button">
                 <Setter Property="HorizontalOptions" Value="Center" />
                 <Setter Property="WidthRequest" Value="150" />
                 <Setter Property="Margin" Value="10"/>
+                <Setter Property="Font" Value="Bold,20"/>
+                <Setter Property="BackgroundColor" Value="{DynamicResource Key=secondaryButtonColor}"/>
+                <Setter Property="TextColor" Value="{DynamicResource Key=primaryTekstColor}" />
+            </Style>
+
+            <Style  x:Key="btnAlertWide"  TargetType="Button">
+                <Setter Property="Margin" Value="80, 5"/>
                 <Setter Property="Font" Value="Bold,20"/>
                 <Setter Property="BackgroundColor" Value="{DynamicResource Key=secondaryButtonColor}"/>
                 <Setter Property="TextColor" Value="{DynamicResource Key=primaryTekstColor}" />
