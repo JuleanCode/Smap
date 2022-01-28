@@ -14,7 +14,7 @@
         <Entry Text="{Binding Company}" Placeholder="Bedrijfsnaam" Style="{StaticResource inputMain}"/>
         <Entry Text="{Binding Scope}" Placeholder="Scope" Style="{StaticResource inputMain}"/>
         <Entry Text="{Binding Key}" Placeholder="Key" Style="{StaticResource inputMain}"/>
-        <DatePicker Date="{Binding EndDate}"  TextColor="White"/>
+        <DatePicker Date="{Binding EndDate}" Style="{StaticResource datePickerMain}"/>
 
         <Button Command="{Binding AddCompany}" Text="Bedrijf toevoegen" Style="{StaticResource btnMain}"/>
 

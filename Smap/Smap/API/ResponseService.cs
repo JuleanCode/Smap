@@ -29,14 +29,14 @@ namespace Smap.API
 
 
             VulnerbiltiyResponse vulnerabilities = null;
-
+            //De API returnt vaak "?" karakters wat jsonConvert niet geregeld krijgt. De exacte reden is niet achterhaald, maar vandaar deze try-catch
             try
             {
                 vulnerabilities = Newtonsoft.Json.JsonConvert.DeserializeObject<VulnerbiltiyResponse>(Vulnerabilities_JSON);
             }
             catch (Exception ex)
             {
-                Application.Current.MainPage.DisplayAlert("Fout", "Er is iets fout gegaan met het ophalen van de vulnerabilties, probeer het later opnieuw", "Ok");
+                Application.Current.MainPage.DisplayAlert("Fout", "Er is iets fout gegaan met het ophalen van de vulnerabilties, Ga terug naar het vorige scherm en probeer het opnieuw", "Ok");
             }
 
 

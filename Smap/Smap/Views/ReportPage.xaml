@@ -22,6 +22,8 @@
                 <Label Text="Scan uitgevoerd voor:" Style="{StaticResource titleMain}" HorizontalOptions="Start" Padding="20, 0"/>
                 <Label Text="{Binding ReportCompany.Name}" Style="{StaticResource titleMainAddon}" HorizontalOptions="Start"/>
 
+                <Editor Placeholder="Opmerkingen..." Text="{Binding Note}" IsReadOnly="{Binding OldReport}" PlaceholderColor="White" HeightRequest="120" TextColor="White" Margin="15,0"/>
+
                 <Label Text="Gevonden vulnerbilities:" Style="{StaticResource titleMain}" HorizontalOptions="Start" Padding="20, 0"/>
 
                 <Frame Style="{StaticResource CollectionViewFrameStyle}" HeightRequest="240">
@@ -49,8 +51,8 @@
                         </CollectionView.ItemTemplate>
                     </CollectionView>
                 </Frame>
-                <Button Text="Opslaan" Style="{StaticResource btnMainWide}" Margin="15, 5" Command="{Binding Save}"/>
-                <Button Text="Verwijder rapport" Style="{StaticResource btnAlertWide}" Margin="15, 5"/>
+                <Button Text="Opslaan" Style="{StaticResource btnMainWide}" Margin="15, 5" Command="{Binding Save}" IsVisible="{Binding NewReport}"/>
+                <!--<Button Text="Verwijder rapport" Style="{StaticResource btnAlertWide}" Margin="15, 5"/>-->
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>

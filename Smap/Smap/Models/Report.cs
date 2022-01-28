@@ -15,5 +15,7 @@ namespace Smap.Models
         public int Ip_Id { get; set; }
         public int Network_Id { get; set; }
         public int Company_Id { get; set; }
+
+        public string Note { get; set; }
     }
 }

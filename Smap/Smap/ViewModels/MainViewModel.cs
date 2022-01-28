@@ -14,6 +14,7 @@ namespace Smap.ViewModels
     {
         public event PropertyChangedEventHandler PropertyChanged;
         public User LoggedInUser { get; set; }
+        public Company CurrentCompany { get; set; } = CompanyService.CurrentCompany;
 
         public MainViewModel()
         {

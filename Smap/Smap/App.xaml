@@ -106,6 +106,12 @@
                 <Setter Property="PlaceholderColor" Value="{DynamicResource Key=primaryTekstColor}" />
             </Style>
 
+            <Style  x:Key="datePickerMain"  TargetType="DatePicker">
+                <Setter Property="HorizontalOptions" Value="Center" />
+                <Setter Property="WidthRequest" Value="150" />
+                <Setter Property="TextColor" Value="{DynamicResource Key=primaryTekstColor}" />
+            </Style>
+
             <Style  x:Key="inputPicker"  TargetType="Picker">
                 <Setter Property="HorizontalOptions" Value="Center" />
                 <Setter Property="WidthRequest" Value="150" />

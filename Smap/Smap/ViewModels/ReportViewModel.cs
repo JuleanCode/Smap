@@ -22,16 +22,26 @@ namespace Smap.ViewModels
         public ObservableCollection<Vulnerbility> Vulnerbilities { get; set; } = new ObservableCollection<Vulnerbility>();
         public Vulnerbility SelectedVulnerbility { get; set; }
 
+        //Zijn beide nodig om zichtbaarheid in de ui te bepalen
+        public bool OldReport { get; set; }
+        public bool NewReport { get; set; }
+
+        public string Note { get; set; }
+
         public ReportViewModel()
         {
             if(IpService.SelectedIp == null)
             {
+                OldReport = true;
+                NewReport = false;
                 ReportIp = IpService.GetReportIp(CurrentReport.Ip_Id);
                 ReportPort = PortService.GetReportOpenPort(ReportIp.Id);
                 GetSavedVulnerbilities();
             }
             else
             {
+                OldReport = false;
+                NewReport = true;
                 GetNewVulnerbilities();
                 ReportIp = IpService.SelectedIp;
                 ReportPort = PortService.SelectedPort;
@@ -79,6 +89,7 @@ namespace Smap.ViewModels
 
         void OnSave()
         {
+            ReportService.CurrentReport.Note = Note;
             ReportService.SaveReport(Vulnerbilities);
             Application.Current.MainPage.DisplayAlert("Succes", "Report succesvol opgeslagen", "Ok");
         }

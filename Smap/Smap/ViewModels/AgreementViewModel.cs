@@ -40,6 +40,8 @@ namespace Smap.ViewModels
             SelectCompany = new Command(OnSelectCompany);
 
             GetCompanies();
+
+            EndDate = DateTime.Now;
         }
 
         public ICommand AddCompany { get; }

@@ -4,7 +4,8 @@
              xmlns:viewmodels="clr-namespace:Smap.ViewModels"
              x:DataType="viewmodels:MainViewModel"
              x:Class="Smap.Views.MainPage"
-             Style="{StaticResource appBackground}">
+             Style="{StaticResource appBackground}"
+             Title="Hoofdmenu">
     
     <ContentPage.BindingContext>
         <viewmodels:MainViewModel/>
@@ -12,8 +13,15 @@
     
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="{Binding LoggedInUser.Id, StringFormat='Welkom, user {0}!'}"
-                   Style="{StaticResource titleMain}"/>
+            <Label Text="{Binding CurrentCompany.Name, StringFormat='Huidig bedrijf: {0}'}"
+                   Style="{StaticResource titleMain}"
+                   Padding="0"/>
+            <Label Text="{Binding CurrentCompany.Scope, StringFormat='Scope: {0}'}"
+                   Style="{StaticResource titleMainAddon}"
+                   Padding="0"/>
+            <Label Text="{Binding CurrentCompany.EndDate, StringFormat='Einddatum: {0}'}"
+                   Style="{StaticResource titleMainAddon}"
+                   Padding="0"/>
             <Button Text="Nieuwe scan" Style="{StaticResource btnMainWide}" Command="{Binding NewScan}"/>
             <Button Text="Uitgevoerde scans" Style="{StaticResource btnMainWide}" Command="{Binding PreviousScans}"/>
             <Button Text="Netwerkinformatie" Style="{StaticResource btnMainWide}" Command="{Binding NetworkInfo}"/>
