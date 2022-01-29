@@ -21,7 +21,8 @@
                 <Label Text="{Binding CurrentReport.Date}" Style="{StaticResource titleMainAddon}" HorizontalOptions="Start"/>
                 <Label Text="Scan uitgevoerd voor:" Style="{StaticResource titleMain}" HorizontalOptions="Start" Padding="20, 0"/>
                 <Label Text="{Binding ReportCompany.Name}" Style="{StaticResource titleMainAddon}" HorizontalOptions="Start"/>
-
+                
+                <Label Text="Opmerking:" Style="{StaticResource titleMain}" HorizontalOptions="Start" Padding="20, 0"/>
                 <Editor Placeholder="Opmerkingen..." Text="{Binding Note}" IsReadOnly="{Binding OldReport}" PlaceholderColor="White" HeightRequest="120" TextColor="White" Margin="15,0"/>
 
                 <Label Text="Gevonden vulnerbilities:" Style="{StaticResource titleMain}" HorizontalOptions="Start" Padding="20, 0"/>

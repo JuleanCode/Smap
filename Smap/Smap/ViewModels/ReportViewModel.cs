@@ -36,6 +36,7 @@ namespace Smap.ViewModels
                 NewReport = false;
                 ReportIp = IpService.GetReportIp(CurrentReport.Ip_Id);
                 ReportPort = PortService.GetReportOpenPort(ReportIp.Id);
+                Note = CurrentReport.Note;
                 GetSavedVulnerbilities();
             }
             else
