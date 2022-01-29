@@ -33,10 +33,12 @@ namespace Smap.ViewModels
         {
             Login = new Command(OnLogin);
             Register = new Command(OnRegister);
+            TakePhoto = new Command(OnTakePhoto);
 
-            VDB();
+            
         }
 
+        public ICommand TakePhoto { get; }
         public ICommand Login { get; }
         public ICommand Register { get; }
 
@@ -93,17 +95,11 @@ namespace Smap.ViewModels
             Application.Current.MainPage.Navigation.PushAsync(new RegisterPage());
         }
 
-
-        async void VDB()
+        
+        void OnTakePhoto()
         {
-            HttpClient httpClient = new HttpClient();
-            HttpRequestMessage request = new HttpRequestMessage();
-            request.RequestUri = new Uri("https://vuldb.com/?api");
-            request.Method = HttpMethod.Get;
-            request.Headers.Add("apikey", "ee9a2baf05302ba59b50c290a88097fd");
-            HttpResponseMessage response = httpClient.SendAsync(request).Result;
-            var responseString = await response.Content.ReadAsStringAsync();
-            var statusCode = response.StatusCode;
+            var result = MediaPicker.CapturePhotoAsync();
+            
         }
     }
 }
