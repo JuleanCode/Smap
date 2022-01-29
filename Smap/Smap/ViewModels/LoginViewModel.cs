@@ -95,11 +95,21 @@ namespace Smap.ViewModels
             Application.Current.MainPage.Navigation.PushAsync(new RegisterPage());
         }
 
-        
-        void OnTakePhoto()
+
+        async void OnTakePhoto()
         {
-            var result = MediaPicker.CapturePhotoAsync();
-            
+            var result = await MediaPicker.CapturePhotoAsync();
+
+
+
+            if (result != null)
+            {
+                var stream = await result.OpenReadAsync();
+
+
+
+                ImageSource.FromStream(() => stream);
+            }
         }
     }
 }
