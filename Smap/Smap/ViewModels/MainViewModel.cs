@@ -1,4 +1,6 @@
-﻿using Smap.Models;
+﻿using Plugin.Media;
+using Plugin.Media.Abstractions;
+using Smap.Models;
 using Smap.Services;
 using Smap.Views;
 using System;
@@ -41,11 +43,30 @@ namespace Smap.ViewModels
             {
                 Application.Current.MainPage.Navigation.PushAsync(new NetworkInformationPage());
             });
+
+            SelectPic = new Command(async () =>
+            {
+                await CrossMedia.Current.Initialize();
+                var mediaOptions = new PickMediaOptions()
+                {
+                    PhotoSize = PhotoSize.Medium
+                };
+                try
+                {
+                    var selectedImageFile = await CrossMedia.Current.PickPhotoAsync(mediaOptions);
+                    var picStream = selectedImageFile.GetStream();
+                }
+                catch (Exception)
+                {
+                    await Application.Current.MainPage.DisplayAlert("Geen foto", "Er is geen foto geselecteerd", "Ok");
+                }
+            });
         }
 
         public Command NewScan { get; }
         public Command PreviousScans { get; }
         public Command Logout { get; set; }
         public Command NetworkInfo { get; set; }
+        public Command SelectPic { get; set; }
     }
 }

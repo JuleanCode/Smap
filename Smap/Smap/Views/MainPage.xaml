@@ -25,6 +25,7 @@
             <Button Text="Nieuwe scan" Style="{StaticResource btnMainWide}" Command="{Binding NewScan}"/>
             <Button Text="Uitgevoerde scans" Style="{StaticResource btnMainWide}" Command="{Binding PreviousScans}"/>
             <Button Text="Netwerkinformatie" Style="{StaticResource btnMainWide}" Command="{Binding NetworkInfo}"/>
+            <Button Text="Foto kiezen" Style="{StaticResource btnMainWide}" Command="{Binding SelectPic}"/>
             <Button Text="Logout" Style="{StaticResource btnAlertWide}" Command="{Binding Logout}"/>
         </StackLayout>
     </ContentPage.Content>
