@@ -52,6 +52,8 @@ namespace Smap.ViewModels
 
             Save = new Command(OnSave);
 
+            Vibration.Vibrate();
+
         }
 
         public Command OnSelect { get; }
